@@ -1,0 +1,151 @@
+:root {
+  --blue-dark: #1a4a8a;
+  --blue-mid: #2e86c1;
+  --blue-light: #5dade2;
+  --blue-bg: #e3f2fd;
+  --blue-border: #90caf9;
+
+  --teal-dark: #0b7285;
+  --teal-mid: #0f9095;
+  --teal-light: #2dd4bf;
+  --teal-bg: #d0f4f7;
+  --teal-border: #67e8f9;
+
+  --orange-dark: #d97706;
+  --orange-light: #fcd34d;
+  --orange-bg: #fef3c7;
+  --orange-border: #fde047;
+
+  --green-dark: #059669;
+  --green-light: #6ee7b7;
+  --green-bg: #d1fae5;
+  --green-border: #a7f3d0;
+
+  --grey-bg: #f3f4f6;
+  --grey-border: #e5e7eb;
+  --text-muted: #6b7280;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f9fafb;
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+a {
+  color: var(--blue-dark);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--blue-mid);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  font-size: 1em;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+input, textarea {
+  font-family: inherit;
+  font-size: 1em;
+  border: 1px solid var(--grey-border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  transition: border-color 0.2s;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--blue-light);
+  box-shadow: 0 0 0 3px var(--blue-bg);
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: var(--blue-dark);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--blue-mid);
+  color: white;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--blue-dark);
+  color: var(--blue-dark);
+}
+
+.btn-outline:hover {
+  background: var(--blue-bg);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: 1.75em;
+  margin: 28px 0 16px;
+  color: var(--blue-dark);
+  font-weight: 700;
+}
+
+.info-box {
+  padding: 20px 24px;
+  border-radius: 10px;
+  border: 2px solid;
+  margin-bottom: 16px;
+}
+
+.info-box-blue {
+  background: var(--blue-bg);
+  border-color: var(--blue-border);
+}
+
+.info-box h4 {
+  margin-bottom: 12px;
+  font-size: 1.05em;
+}
+
+.info-box p {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.info-box p:last-child {
+  margin-bottom: 0;
+}

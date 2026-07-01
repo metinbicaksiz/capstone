@@ -1,0 +1,33 @@
+.site-footer {
+  background: var(--blue-dark);
+  color: white;
+  padding: 32px 20px;
+  margin-top: auto;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-content p {
+  font-size: 0.95em;
+  margin-bottom: 8px;
+}
+
+.footer-content p:last-child {
+  margin-bottom: 0;
+  font-size: 0.9em;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 24px 16px;
+  }
+
+  .footer-content p {
+    font-size: 0.9em;
+  }
+}

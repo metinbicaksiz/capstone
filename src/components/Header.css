@@ -1,0 +1,126 @@
+.site-header {
+  background: white;
+  border-bottom: 2px solid var(--grey-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.site-logo {
+  font-size: 1.05em;
+  font-weight: 700;
+  color: var(--blue-dark);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.site-logo span {
+  font-size: 0.85em;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.site-nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.site-nav a {
+  color: var(--blue-dark);
+  font-weight: 500;
+  padding: 8px 0;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  white-space: nowrap;
+  font-size: 0.95em;
+}
+
+.site-nav a:hover {
+  color: var(--blue-light);
+  border-bottom-color: var(--blue-light);
+}
+
+.site-nav a.active {
+  color: var(--blue-light);
+  border-bottom-color: var(--blue-light);
+}
+
+.profile-link {
+  background: var(--blue-bg);
+  padding: 8px 14px;
+  border-radius: 6px;
+  border-bottom: none !important;
+}
+
+.profile-link:hover {
+  background: var(--blue-light);
+  color: white;
+  border-bottom: none !important;
+}
+
+.login-link {
+  font-weight: 600;
+  color: var(--blue-dark);
+}
+
+.login-link:hover {
+  color: var(--blue-light);
+  border-bottom-color: var(--blue-light);
+}
+
+.signup-link {
+  color: var(--blue-dark);
+  font-weight: 600;
+  border-bottom: none !important;
+  transition: all 0.2s;
+}
+
+.signup-link:hover {
+  color: var(--blue-light);
+}
+
+.logout-btn {
+  background: var(--orange-dark);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95em;
+}
+
+.logout-btn:hover {
+  background: #b95c0f;
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .site-nav {
+    width: 100%;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .site-nav a {
+    font-size: 0.85em;
+  }
+}
