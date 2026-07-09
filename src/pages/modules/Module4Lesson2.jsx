@@ -171,7 +171,7 @@ export default function Module4Lesson2() {
           {activeAccordion === 5 && (
             <div className={`accordion-content ${activeAccordion === 5 ? 'active' : ''}`}>
               <iframe
-                src="https://wordwall.net/embed/b099deae2a6c48d19d8a6404f6b08732?themeId=62&templateId=5&fontStackId=0"
+                src="https://wordwall.net/embed/ebb14644ad804131bfb93ebb969fd6e9?themeId=62&templateId=5&fontStackId=0"
                 width="100%"
                 height="900px"
                 frameBorder="0"
