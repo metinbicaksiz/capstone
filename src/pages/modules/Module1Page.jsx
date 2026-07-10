@@ -10,7 +10,15 @@ export default function Module1Page() {
     >
       <div style={{ maxWidth: '900px', margin: '0 auto' }}>
 
-
+<div class="page-banner">
+        <h1>Module Overview</h1>
+        {/* <p class="banner-sub">10 activities with instant feedback. Work in order, they get progressively harder.</p> */}
+        <div class="banner-tags">
+          {/* <span class="banner-tag">📅 Week 2–3</span>
+          <span class="banner-tag">🎯 Instant feedback</span>
+          <span class="banner-tag">🔄 Retry anytime</span> */}
+        </div>
+      </div>
       {/* What You Will Learn */}
       {/* <div class="page-banner" style="background: linear-gradient(135deg, #1e8449, #27ae60);">
         <h1>1.5 — Writing Practice &amp; Submission</h1>
@@ -19,7 +27,7 @@ export default function Module1Page() {
           <span class="banner-tag">Module 1</span>
         </div>
       </div> */}
-      <h2 className="section-title">🎯 What You Will Learn in Module 1</h2>
+      <h2 className="section-title">What You Will Learn in Module 1</h2>
       <p>
         Module 1 is your starting point. Whether you are new to academic writing or returning to strengthen your foundations, this module will help you understand the building blocks of an academic essay. You will learn how paragraphs are structured, how paragraphs work together to form a complete essay, and how to use grammar and vocabulary in a formal academic style.
       </p>
@@ -35,74 +43,11 @@ export default function Module1Page() {
         <li>Complete an essay outline for a four-paragraph opinion essay</li>
       </ul>
 
-      {/* Module Structure */}
-      <h2 className="section-title">🗂️ Module Structure</h2>
-      <p>Work through the sections below in order. Each section builds on the previous one. Complete all activities before moving to the next section.</p>
-
-      <div className="module-steps">
-        <div className="step-row">
-          <div className="step-num">1</div>
-          <div className="step-body">
-            <h4>1.1 — Orientation & Activation</h4>
-            <p>Watch the welcome video, read the module overview, review the learning objectives, and complete your module checklist. Get familiar with how this module works.</p>
-          </div>
-        </div>
-        <div className="step-row">
-          <div className="step-num">2</div>
-          <div className="step-body">
-            <h4>1.2 — Theory & Knowledge Building</h4>
-            <p>Study the core concepts: paragraph structure, essay structure, thesis statements, topic sentences, academic writing conventions, sentence types, and academic vocabulary. Read the theory carefully and take notes.</p>
-          </div>
-        </div>
-        <div className="step-row">
-          <div className="step-num">3</div>
-          <div className="step-body">
-            <h4>1.3 — Interactive Activities</h4>
-            <p>Practice what you have learned through H5P interactive activities with immediate, automated feedback. Activities include identifying paragraph parts, choosing topic sentences, ordering sentences, and recognizing formal language.</p>
-          </div>
-        </div>
-        <div className="step-row">
-          <div className="step-num">4</div>
-          <div className="step-body">
-            <h4>1.4 — Reading, Discussion & Collaboration</h4>
-            <p>Read sample academic paragraphs and essays, analyze their structure, and participate in the online discussion forum to share ideas with your classmates.</p>
-          </div>
-        </div>
-        <div className="step-row">
-          <div className="step-num">5</div>
-          <div className="step-body">
-            <h4>1.5 — Writing Practice & Submission</h4>
-            <p>Apply everything you have learned: write practice paragraphs, complete an essay outline, and submit your first writing assignment (500–700 words). Receive formative feedback from your instructor.</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Assessment */}
-      <h2 className="section-title">📊 Module 1 Assessment</h2>
-      <div className="two-col">
-        <div className="info-box info-box-blue">
-          <h4>✍️ Writing Assignment (Module 1)</h4>
-          <p>
-            Write a 500–700 word academic essay on a given prompt. This assignment is <strong>formative only</strong> — it is not graded but your instructor will provide written feedback to help you improve before Module 2.
-          </p>
-          <p style={{ margin: 0 }}>
-            <strong>Purpose:</strong> Diagnostic + practice. Identify strengths and areas for improvement.
-          </p>
-        </div>
-        <div className="info-box" style={{ background: 'var(--teal-bg)', borderColor: 'var(--teal-border)' }}>
-          <h4>💬 Discussion Forum Participation</h4>
-          <p>
-            Participate in the Module 1 discussion forum: share your response to the discussion prompt and reply to at least two classmates. This counts toward your <strong>Participation grade (25%).</strong>
-          </p>
-          <p style={{ margin: 0 }}>
-            <strong>Deadline:</strong> Before the end of Week 3.
-          </p>
-        </div>
-      </div>
+    
 
       {/* Tips */}
       <div className="info-box info-box-orange">
-        <h4>💡 Tips for Success in Module 1</h4>
+        <h4>Tips for Success in Module 1</h4>
         <ul style={{ margin: 0 }}>
           <li>Download the <strong>Interactive Theory Booklet</strong> from Course Study Materials — it supports every section of this module.</li>
           <li>

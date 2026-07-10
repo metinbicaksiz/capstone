@@ -163,3 +163,51 @@
   display: block;
 }
 
+.check-btn {
+  padding: 10px 22px;
+  background: var(--blue-dark);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.92em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.check-btn:hover:not(:disabled) {
+  background: var(--blue-mid);
+}
+
+.check-btn.orange {
+  background: #e67e22;
+}
+
+.check-btn.orange:hover:not(:disabled) {
+  background: #ca6f1e;
+}
+
+.check-btn.teal {
+  background: #0e7490;
+}
+
+.check-btn.teal:hover:not(:disabled) {
+  background: #0a5c73;
+}
+
+.retry-btn {
+  padding: 10px 22px;
+  background: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.92em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.retry-btn:hover {
+  background: #e0e0e0;
+}
+
