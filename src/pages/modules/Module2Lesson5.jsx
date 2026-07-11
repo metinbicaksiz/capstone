@@ -23,11 +23,11 @@ export default function Module2Lesson5() {
       <div style={{ maxWidth: '900px', margin: '0 auto' }}>
         <div className="content-locked" dangerouslySetInnerHTML={{ __html: `
       <div class="page-banner">
-        <h1>2.5 — Writing Practice &amp; Submission</h1>
+        <h1>2.5 Writing Practice &amp; Submission</h1>
         <p class="banner-sub">Plan and write your first full academic essay: a 4-paragraph advantages and disadvantages essay.</p>
       </div>
 
-      <h2 class="section-title">📝 Essay Assignment</h2>
+      <h2 class="section-title">Essay Assignment</h2>
       <p>Write a 4-paragraph advantages and disadvantages essay on the assigned topic.</p>
 
       <div class="info-box info-box-blue">
