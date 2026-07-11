@@ -72,7 +72,7 @@ export default function Module1Lesson5() {
     <ModuleLayout moduleNumber={1} moduleName={moduleNames[1]}>
       <div style={{ maxWidth: '900px', margin: '0 auto' }}>
         <div dangerouslySetInnerHTML={{ __html: `
-      <div class="page-banner" style="background: linear-gradient(135deg, #1e8449, #27ae60);">
+      <div class="page-banner">
         <h1>1.5 — Writing Practice &amp; Submission</h1>
         <p class="banner-sub">Read the essay below carefully, then complete the essay outline by identifying each structural component.</p>
       </div>

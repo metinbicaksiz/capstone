@@ -163,6 +163,32 @@
   display: block;
 }
 
+.checklist {
+  list-style: none;
+  margin-left: 20px;
+}
+
+.checklist li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--grey-border);
+}
+
+.checklist li:last-child {
+  border-bottom: none;
+}
+
+.checklist .item-label {
+  font-weight: 600;
+  color: #333;
+}
+
+.checklist small {
+  color: var(--text-muted);
+}
+
 .check-btn {
   padding: 10px 22px;
   background: var(--blue-dark);
