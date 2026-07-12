@@ -11,61 +11,61 @@ const QUESTIONS = [
     id: 0,
     question: "What are the TWO main points stated in the thesis statement of the essay?",
     options: [
-      "The cost of online courses and the quality of teaching",
-      "Flexibility and access / student motivation and social interaction",
-      "Technology advancement and digital literacy",
-      "Academic performance and student satisfaction",
+      "The cost of travel and its environmental impact",
+      "Personal benefits for the traveller and benefits for a country's economy",
+      "Domestic travel and international travel",
+      "Travel safety and travel enjoyment",
     ],
     answer: 1,
-    feedback: "The thesis states: '…online learning offers considerable advantages in terms of flexibility and access, it also presents significant challenges related to student motivation and the quality of social interaction…' These two points become the topics of each body paragraph.",
+    feedback: "The thesis states: 'Obviously, travelling has benefits for the people who travel and for the country's economy.' These two points — personal benefits and economic benefits — become the topics of each body paragraph.",
   },
   {
     id: 1,
     question: "What is the topic sentence of Body Paragraph 1, and what point does it introduce?",
     options: [
-      "Online learning is cheaper than traditional education — it introduces the financial benefits.",
-      "Online platforms use discussion forums and email — it introduces communication tools.",
-      "Online learning is the flexibility it provides to students with diverse schedules — it introduces the advantage of flexibility.",
-      "Online learning has democratized access to education — it introduces the conclusion of the paragraph.",
+      "Another gain of travelling is that it benefits a country's economy — it introduces economic benefits.",
+      "Travelling requires many workers in tourism agencies — it introduces job creation.",
+      "The first gain of travelling is personal benefits — it introduces the personal advantages of travel.",
+      "In conclusion, travel is useful for both people and businesses — it introduces the conclusion.",
     ],
     answer: 2,
-    feedback: "The topic sentence is: 'One of the most significant advantages of online learning is the flexibility it provides to students with diverse schedules and responsibilities.' This directly picks up 'flexibility' from the thesis.",
+    feedback: "The topic sentence is: 'The first gain of travelling is personal benefits.' This directly picks up 'benefits for the people who travel' from the thesis.",
   },
   {
     id: 2,
-    question: "What specific example does the writer use in Body Paragraph 1 to illustrate the advantage?",
+    question: "What specific example does the writer use in Body Paragraph 2 to illustrate how travel builds professional networks?",
     options: [
-      "A university student who studies part-time at weekends",
-      "A student in a rural area with no access to public transport",
-      "An international student studying from a different country",
-      "A working parent who cannot attend campus during conventional hours",
+      "A traveller who learns to cook different cuisines",
+      "A student who studies abroad for a semester",
+      "A tourist who visits historical monuments",
+      "A businessman who meets someone in the same industry while travelling on a train",
     ],
     answer: 3,
-    feedback: "The writer uses 'a working parent who cannot attend a university campus during conventional hours' as a concrete example. This follows the signal phrase 'For instance,' which introduces examples in academic writing.",
+    feedback: "The writer uses 'a businessman who travels on a train can meet somebody who does the same business as they do and they can network' as a concrete example, introduced by the signal phrase 'For example,'.",
   },
   {
     id: 3,
-    question: "What does the University of Michigan research demonstrate, and which paragraph uses it?",
+    question: "According to Body Paragraph 1, how does travel affect a person's skills and perspective?",
     options: [
-      "Online students perform better academically — used in Body Paragraph 1 to support the flexibility advantage.",
-      "Online students reported significantly higher rates of isolation and disengagement — used in Body Paragraph 2 to support the social interaction disadvantage.",
-      "Online students prefer asynchronous tools — used in Body Paragraph 2 to explain communication differences.",
-      "Online students are more self-motivated — used in the conclusion as a counterargument.",
+      "It has no effect on skills, only on relaxation.",
+      "It broadens perspectives and improves social/organizational skills, since travellers must plan carefully and communicate with new people.",
+      "It primarily improves language skills through immersion.",
+      "It reduces a person's ability to adapt to new situations.",
     ],
     answer: 1,
-    feedback: "The research is in Body Paragraph 2: 'Research conducted by the University of Michigan found that students enrolled in fully online programmes reported significantly higher rates of feelings of isolation and disengagement compared to their on-campus counterparts.' It supports the disadvantage of reduced social interaction.",
+    feedback: "Body Paragraph 1 explains that travel 'broadens the traveller's horizons' (more tolerant, wiser perspectives) and 'teaches people many skills,' specifically social and organizational skills, since travellers must plan their trips carefully and communicate with many people.",
   },
   {
     id: 4,
-    question: "What does the conclusion recommend, and how does it relate to the thesis?",
+    question: "What does the concluding paragraph do, and how does it relate to the thesis?",
     options: [
-      "Universities should replace online learning with traditional classrooms — it contradicts the thesis by rejecting online learning.",
-      "Students should balance online and campus study equally — it adds a new point not mentioned in the thesis.",
-      "Educational institutions should integrate collaborative online tools and virtual interaction — it addresses the challenge identified in the thesis and offers a solution.",
-      "Online learning should be restricted to postgraduate students — it narrows the scope of the essay's argument.",
+      "It introduces a brand-new argument not mentioned earlier — it contradicts the thesis.",
+      "It paraphrases the thesis statement and adds the writer's final opinion that travel is important in a globalized world.",
+      "It only summarizes Body Paragraph 2, ignoring Body Paragraph 1.",
+      "It restates the opening quotation from the introduction word-for-word.",
     ],
-    answer: 2,
-    feedback: "The conclusion recommends that institutions 'seek to integrate collaborative online tools and regular virtual interaction opportunities.' This directly responds to the social interaction challenge stated in the thesis, showing that the conclusion restates the problem and adds a forward-looking recommendation.",
+    answer: 1,
+    feedback: "The conclusion paraphrases the thesis ('Domestic and international travel will give rise to people who are more equipped and qualified and also economies can improve and become stronger') and adds a final comment: 'I think, in addition to being fun, travel is important especially in the globalized world.'",
   },
 ]
 
@@ -443,21 +443,21 @@ export default function Module1Lesson4() {
 
       <div class="annotated-essay">
         <div class="ae-header">
-          <span>Sample Essay — Topic: Online Learning</span>
-          <span style="font-size:0.8em; opacity:0.8;">~520 words</span>
+          <span>Sample Essay — Topic: Benefits of Travel</span>
+          <span style="font-size:0.8em; opacity:0.8;">~480 words</span>
         </div>
         <div class="ae-body">
           <p><strong>Introduction</strong><br>
-          In recent years, the rapid advancement of digital technology has fundamentally transformed the landscape of education, making online learning more accessible and widespread than ever before. <span class="hi-thesis"><strong>While online learning offers considerable advantages in terms of flexibility and access, it also presents significant challenges related to student motivation and the quality of social interaction in educational environments.</strong></span></p>
+          One of the greatest philosophers, Augustine, said, "The world is a book and those who do not travel read only one page." It is a well-known fact that experiences of travel can provide a person a lot of benefits. Not only the traveller, but also an entire country benefits from travel or tourism activities. <span class="hi-thesis"><strong>Obviously, travelling has benefits for the people who travel and for the country's economy.</strong></span></p>
 
           <p><strong>Body Paragraph 1</strong><br>
-          <span class="hi-ts"><strong>One of the most significant advantages of online learning is the flexibility it provides to students with diverse schedules and responsibilities.</strong></span> <span class="hi-sup">Unlike traditional classroom-based education, online platforms allow learners to access course materials, complete assignments, and participate in discussions at times that suit their individual circumstances.</span> <span class="hi-sup">This flexibility is particularly beneficial for students who are simultaneously managing employment commitments, family responsibilities, or geographical limitations that would otherwise prevent them from pursuing formal education.</span> <span class="hi-ex">For instance, a working parent who cannot attend a university campus during conventional hours can complete a full degree programme online without disrupting their professional or personal obligations.</span> <span class="hi-cs">Consequently, online learning has democratized access to education by removing many of the logistical barriers that have historically restricted participation in higher education.</span></p>
+          <span class="hi-ts"><strong>The first gain of travelling is personal benefits.</strong></span> <span class="hi-sup">To begin with, travelling broadens the traveller's horizons. Seeing different places either in their own country or in another country will give travellers a chance to see different lifestyles and different kinds of people. They can realize that there are alternative ways of doing everyday activities such as housing, cooking and practicing religion. As a result, they become more tolerant and wiser with different perspectives in their own life and work.</span> <span class="hi-sup">Furthermore, travelling teaches people many skills. Maybe the skills that are most dramatically affected are social and organizational skills. Travellers have to plan their travels carefully and follow these plans, which will make them better organizers. Also, travellers have to talk to, or even stay with many other people during their time away from home. This will also help them become better communicators.</span> <span class="hi-cs">In brief, if people want to improve themselves, travelling is definitely the best option for them.</span></p>
 
           <p><strong>Body Paragraph 2</strong><br>
-          <span class="hi-ts"><strong>However, a major disadvantage of online learning is the reduced opportunity for meaningful social interaction, which can negatively affect both student motivation and academic performance.</strong></span> <span class="hi-sup">In a traditional classroom environment, students benefit from spontaneous discussions, collaborative group activities, and direct interactions with instructors that foster a sense of community and shared academic purpose.</span> <span class="hi-sup">Online learning, by contrast, often relies on asynchronous communication tools such as discussion forums and email, which lack the immediacy and emotional richness of face-to-face interaction.</span> <span class="hi-ex">Research conducted by the University of Michigan found that students enrolled in fully online programmes reported significantly higher rates of feelings of isolation and disengagement compared to their on-campus counterparts.</span> <span class="hi-cs">It is therefore evident that while online learning expands access to education, it must address the fundamental human need for connection and collaboration in order to be fully effective.</span></p>
+          <span class="hi-ts"><strong>Another gain of travelling is that it benefits a country's economy.</strong></span> <span class="hi-sup">To start with, travelling creates a lot of opportunities. Travelling requires many workers in tourism agencies, transportation, accommodation, catering, and a lot of other job areas that depend on visitors. When people travel, they have to spend money to meet at least their basic needs. As a result, this will create more job opportunities in the places which are attractive for tourists.</span> <span class="hi-sup">Additionally, people who travel will get new ideas for business wherever they go because they see new businesses and communicate with people who are in different industries. This will give people a chance to build a network for their work.</span> <span class="hi-ex">For example, a businessman who travels on a train can meet somebody who does the same business as they do and they can network.</span> <span class="hi-cs">As a result, travelling can improve a country's economy.</span></p>
 
           <p><strong>Conclusion</strong><br>
-          In summary, online learning represents a transformative development in education that offers unprecedented flexibility and access to learners worldwide. Nevertheless, it is essential to acknowledge and address the social and motivational challenges that arise from reduced human interaction in digital learning environments. Educational institutions and course designers should therefore seek to integrate collaborative online tools and regular virtual interaction opportunities to create more engaging and socially rich online learning experiences.</p>
+          In conclusion, travel is useful for both people and businesses. Domestic and international travel will give rise to people who are more equipped and qualified and also economies can improve and become stronger. I think, in addition to being fun, travel is important especially in the globalized world.</p>
         </div>
         <div class="ae-legend">
           <span><span class="dot" style="background:#f3e5f5;"></span> Thesis Statement</span>
@@ -569,7 +569,7 @@ export default function Module1Lesson4() {
                     Write approximately <strong>150 words</strong> in response to the following prompt:
                   </p>
                   <p style={{ margin: '12px 0 0 0', fontSize: '0.9em', lineHeight: '1.7', color: '#333' }}>
-                    Having read the sample essay on <em>Online Learning</em>, what would you change or improve in the essay? Consider the structure, the examples used, the language, or the arguments made. In addition, suggest <strong>at least one additional idea</strong> that the writer could have included to make the essay stronger. Explain your reasoning clearly and use specific references to the essay where possible.
+                    Having read the sample essay on <em>Benefits of Travel</em>, what would you change or improve in the essay? Consider the structure, the examples used, the language, or the arguments made. In addition, suggest <strong>at least one additional idea</strong> (a further personal or economic benefit of travel) that the writer could have included to make the essay stronger. Explain your reasoning clearly and use specific references to the essay where possible.
                   </p>
                 </div>
 
