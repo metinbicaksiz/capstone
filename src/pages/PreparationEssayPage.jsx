@@ -12,6 +12,28 @@ const RUBRIC_CATEGORIES = [
 
 const RUBRIC_LEVELS = ['NONE', 'MINIMAL', 'BASIC', 'ADEQUATE', 'EFFECTIVE', 'ADVANCED']
 
+const ARTICLES_BY_ESSAY = {
+  1: [
+    { title: 'Packaging Waste in the Supply Chain: A Systematic Literature Review', file: 'Packaging_Waste_in_the_Supply_Chain_A_Systematic_L.pdf' },
+    { title: 'Should Parents be Involved in their Children’s Schooling?', file: 'ShouldParentsbeInvolvedintheirChildrensSchoolingaccepted.pdf' },
+  ],
+}
+
+const PROMPTS_BY_ESSAY = {
+  1: [
+    {
+      heading: 'Essay Prompt 1 – Packaging Waste',
+      question: 'To what extent should governments introduce stricter regulations to reduce packaging waste, even if these regulations increase costs for businesses and consumers?',
+      guidance: 'Use evidence from the article to support your opinion. You may discuss the environmental impact of packaging waste, the role of e-commerce, business responsibilities, consumer behavior, or possible solutions.',
+    },
+    {
+      heading: 'Essay Prompt 2 – Parent Involvement in Education',
+      question: 'To what extent should parents be actively involved in their children’s education?',
+      guidance: 'Use evidence from the article to support your opinion. You may discuss the benefits and drawbacks of parent involvement, the importance of the quality of involvement, homework support, student independence, or the roles of parents and teachers.',
+    },
+  ],
+}
+
 export default function PreparationEssayPage() {
   const { essaySlug } = useParams()
   const { profile } = useAuth()
@@ -23,129 +45,69 @@ export default function PreparationEssayPage() {
 
   return (
     <div className="page-container">
-      {/* Breadcrumb */}
-      <nav style={{ fontSize: '0.9em', color: '#888', marginBottom: '16px' }}>
-        <Link to="/" style={{ color: '#888' }}>Home</Link>
-        <span style={{ margin: '0 8px' }}>›</span>
-        <Link to="/preparation" style={{ color: '#888' }}>Preparation</Link>
-        <span style={{ margin: '0 8px' }}>›</span>
-        <span>Essay Prompt {num}</span>
-      </nav>
+     
 
       {/* Banner */}
       <div className="page-banner" style={{ background: 'linear-gradient(135deg, #7f8c8d, #95a5a6)', marginBottom: '28px' }}>
-        <div className="banner-icon" style={{ fontSize: '2em', marginBottom: '8px' }}>{num}️⃣</div>
         <h1>Essay Prompt {num}</h1>
-        <p className="banner-sub">Write a 4-paragraph opinion essay using evidence from the provided articles.</p>
-        <div className="banner-tags">
-          <span className="banner-tag">4 Paragraphs</span>
-          <span className="banner-tag">3 Articles</span>
-          <span className="banner-tag">~500–700 words</span>
-        </div>
-      </div>
-
-      {/* Essay Prompt */}
-      <h2 className="section-title">Your Essay Prompt</h2>
-      <div className="info-box info-box-blue" style={{ fontSize: '1.05em', padding: '24px' }}>
-        <p style={{ margin: 0 }}><strong>Essay Topic to Be Added</strong></p>
-        <p style={{ margin: '12px 0 0 0', fontSize: '0.95em', color: 'var(--text-muted)' }}>
-          The essay prompt and specific writing instructions will appear here.
-        </p>
       </div>
 
       {/* Supporting Articles */}
       <h2 className="section-title">Supporting Articles</h2>
-      <p>Read the following articles. You must integrate evidence from at least 2 of these articles into your essay.</p>
+      <p>Read both articles, choose one essay prompt and one side of the argument, then write a 4-paragraph opinion essay using evidence from the article to support your ideas.</p>
       <div style={{ background: 'var(--grey-bg)', border: '1px solid var(--grey-border)', borderRadius: '10px', padding: '20px', marginBottom: '20px' }}>
-        {[1, 2, 3].map(n => (
-          <div key={n} style={{ marginBottom: n < 3 ? '16px' : 0 }}>
-            <h4 style={{ margin: '0 0 8px 0' }}>Article {n}</h4>
-            <p style={{ margin: 0, fontSize: '0.9em', color: 'var(--text-muted)' }}>Title and link to be added</p>
-          </div>
-        ))}
+        {[1, 2].map(n => {
+          const article = ARTICLES_BY_ESSAY[num]?.[n - 1]
+          return (
+            <div key={n} style={{ marginBottom: n < 2 ? '16px' : 0 }}>
+              <h4 style={{ margin: '0 0 8px 0' }}>Article {n}</h4>
+              {article ? (
+                <a href={`/pdfs/articles/${article.file}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.9em' }}>
+                  {article.title}
+                </a>
+              ) : (
+                <p style={{ margin: 0, fontSize: '0.9em', color: 'var(--text-muted)' }}>Title and link to be added</p>
+              )}
+            </div>
+          )
+        })}
       </div>
 
-      {/* Essay Requirements */}
-      <h2 className="section-title">Essay Requirements</h2>
-      <div className="two-col">
-        <div className="info-box info-box-teal">
-          <h4>Structure</h4>
-          <ul className="list-unstyled" style={{ fontSize: '0.9em' }}>
-            <li>Paragraph 1: Introduction with thesis</li>
-            <li>Paragraph 2: Supporting argument + evidence</li>
-            <li>Paragraph 3: Supporting argument + evidence</li>
-            <li>Paragraph 4: Conclusion</li>
-          </ul>
+      {/* Essay Prompt */}
+      <h2 className="section-title">Your Essay Prompt</h2>
+      {PROMPTS_BY_ESSAY[num] ? (
+        PROMPTS_BY_ESSAY[num].map((prompt, i) => (
+          <div
+            key={prompt.heading}
+            className="info-box info-box-blue"
+            style={{ fontSize: '1.05em', padding: '24px', marginBottom: i < PROMPTS_BY_ESSAY[num].length - 1 ? '16px' : 0 }}
+          >
+            <p style={{ margin: 0 }}><strong>{prompt.heading}</strong></p>
+            <p style={{ margin: '12px 0 0 0' }}>{prompt.question}</p>
+            <p style={{ margin: '12px 0 0 0', fontSize: '0.95em', color: 'var(--text-muted)' }}>
+              {prompt.guidance}
+            </p>
+          </div>
+        ))
+      ) : (
+        <div className="info-box info-box-blue" style={{ fontSize: '1.05em', padding: '24px' }}>
+          <p style={{ margin: 0 }}><strong>Essay Topic to Be Added</strong></p>
+          <p style={{ margin: '12px 0 0 0', fontSize: '0.95em', color: 'var(--text-muted)' }}>
+            The essay prompt and specific writing instructions will appear here.
+          </p>
         </div>
-        <div className="info-box info-box-green">
-          <h4>Guidelines</h4>
-          <ul className="list-unstyled" style={{ fontSize: '0.9em' }}>
-            <li>Length: 500–700 words</li>
-            <li>Evidence: At least 2 articles cited</li>
-            <li>Language: Formal, academic</li>
-            <li>Format: Double-spaced, clear font</li>
-          </ul>
-        </div>
+      )}
+
+      <br/>
+      <div className="info-box info-box-teal">
+        <h4>Essay Rubric for Peer Review</h4>
+        <p>Use the essay rubric to grade the paper and provide any additional feedback in the comments section while submitting the file. You will assign a score (0–5) in each category and provide written feedback.</p>
+        <p><a href="../public/pdfs/ELC_AcademicEssayRubric.pdf" target="_blank">Rubrics</a></p>
       </div>
 
       {/* Essay Submission */}
       <h2 className="section-title">Submit Your Essay</h2>
       <EssaySubmissionForm />
-
-      {/* Rubric — instructors/admins only */}
-      {isInstructor && (
-        <>
-          <h2 className="section-title" style={{ marginTop: '28px' }}>Summative Grade Rubric</h2>
-          <div style={{ background: '#fff', border: '1px solid #ddd', borderRadius: '10px', padding: '20px', marginBottom: '20px' }}>
-            <div style={{ display: 'flex', gap: '10px', marginBottom: '20px', flexWrap: 'wrap' }}>
-              {RUBRIC_CATEGORIES.map((cat, i) => (
-                <div key={cat.key} style={{ background: i === 0 ? '#7f8c8d' : '#95a5a6', color: '#fff', padding: '10px 16px', borderRadius: '6px', fontWeight: 600 }}>
-                  {cat.label}
-                </div>
-              ))}
-            </div>
-
-            <div className="rubric-table-wrapper">
-              <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '20px' }}>
-                <thead>
-                  <tr style={{ background: '#f0f0f0', borderBottom: '2px solid #7f8c8d' }}>
-                    <th style={{ padding: '12px', textAlign: 'left', fontWeight: 600, width: '20%' }}>Category</th>
-                    {RUBRIC_LEVELS.map(level => (
-                      <th key={level} style={{ padding: '12px', textAlign: 'center', fontWeight: 600, borderLeft: '1px solid #ddd' }}>{level}</th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {RUBRIC_CATEGORIES.map((cat, i) => (
-                    <tr key={cat.key} style={{ borderBottom: i < RUBRIC_CATEGORIES.length - 1 ? '1px solid #ddd' : 'none' }}>
-                      <td style={{ padding: '12px', fontWeight: 600 }}>{cat.label}</td>
-                      {RUBRIC_LEVELS.map(level => (
-                        <td key={level} style={{ padding: '12px', textAlign: 'center', borderLeft: '1px solid #ddd' }}>
-                          <input type="radio" name={`essay-${num}-${cat.key}`} value={level} />
-                        </td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <div style={{ marginBottom: '20px' }}>
-              <h4 style={{ marginBottom: '10px' }}>Comments</h4>
-              <textarea
-                style={{ width: '100%', height: '100px', padding: '12px', border: '1px solid #ddd', borderRadius: '6px', fontFamily: 'inherit', boxSizing: 'border-box' }}
-                placeholder="Optional feedback for the student..."
-              />
-            </div>
-
-            <div style={{ textAlign: 'right' }}>
-              <button className="btn btn-primary" style={{ background: '#7f8c8d', borderColor: '#7f8c8d' }}>
-                Finalize Grade
-              </button>
-            </div>
-          </div>
-        </>
-      )}
 
       {/* Navigation */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '28px', flexWrap: 'wrap', gap: '12px' }}>

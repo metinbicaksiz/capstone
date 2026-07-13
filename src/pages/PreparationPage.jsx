@@ -1,7 +1,15 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import './modules/ModulesPage.css'
 import './PreparationPage.css'
 
 export default function PreparationPage() {
+  const [activeAccordion, setActiveAccordion] = useState(0)
+
+  const toggleAccordion = (index) => {
+    setActiveAccordion(activeAccordion === index ? null : index)
+  }
+
   const essayPrompts = [
     {
       number: 1,
@@ -12,74 +20,58 @@ export default function PreparationPage() {
     {
       number: 2,
       emoji: '2️⃣',
-      color: '#e8f8f5',
-      borderColor: 'var(--teal-dark)',
+      color: '#eaf4fc',
+      borderColor: 'var(--blue-dark)',
     },
     {
       number: 3,
       emoji: '3️⃣',
-      color: '#eafaf1',
-      borderColor: 'var(--green-dark)',
-    },
-    {
-      number: 4,
-      emoji: '4️⃣',
-      color: '#fef9e7',
-      borderColor: 'var(--orange-dark)',
-    },
-    {
-      number: 5,
-      emoji: '5️⃣',
-      color: '#fdedec',
-      borderColor: 'var(--red-dark)',
-    },
+      color: '#eaf4fc',
+      borderColor: 'var(--blue-dark)',
+    }
   ]
 
   return (
     <div className="page-container">
       <div className="page-banner" style={{ background: 'linear-gradient(135deg, #1a4a8a, #2e86c1)' }}>
         <div className="banner-icon"></div>
-        <h1>Preparation & Practice — Opinion Essays</h1>
-        <p className="banner-sub">Practice writing 4-paragraph opinion essays using articles. Complete 3 out of 5 essay prompts to prepare for your final exam.</p>
-        <div className="banner-tags">
-          <span className="banner-tag">Weeks 13 – 14</span>
-          <span className="banner-tag">5 Essay Prompts</span>
-          <span className="banner-tag">Complete 3 (Optional: 4)</span>
-        </div>
+        <h1>Preparation & Practice <br/>Argumentative Opinion Essays</h1>
+        <p className="banner-sub">Practice writing 4-paragraph opinion essays using articles.</p>
+        
       </div>
 
       {/* Overview */}
       <h2 className="section-title">Module Overview</h2>
-      <p>
-        In the Preparation module, you will practice writing opinion essays with articles to prepare for your final exam. This module focuses on consolidating all the skills you have developed throughout the course in a low-stakes, practice environment. You will receive summative feedback from your instructor on each essay you submit.
-      </p>
-
-      <div className="two-col">
-        <div className="info-box info-box-blue">
-          <h4>What You'll Practice</h4>
-          <ul className="list-unstyled">
-            <li>Writing 4-paragraph opinion essays</li>
-            <li>Integrating evidence from academic articles</li>
-            <li>Developing clear arguments</li>
-            <li>Using persuasive language</li>
-            <li>Formal academic writing conventions</li>
-          </ul>
-        </div>
-        <div className="info-box" style={{ background: '#f5f5f5', borderColor: 'var(--grey-border)' }}>
-          <h4>Requirements</h4>
-          <ul className="list-unstyled">
-            <li><strong>Minimum:</strong> Complete 3 essays</li>
-            <li><strong>Optional:</strong> Complete up to 4 essays</li>
-            <li><strong>Length:</strong> ~500–700 words per essay</li>
-            <li><strong>Feedback:</strong> Summative grade only</li>
-            <li><strong>Deadline:</strong> By end of Week 14</li>
-          </ul>
+      <div className="accordion">
+        <div className="accordion-item">
+          <button
+            className={`accordion-header ${activeAccordion === 0 ? 'active' : ''}`}
+            onClick={() => toggleAccordion(0)}
+          >
+            <span>Instructions</span>
+            <span className="accordion-icon">▼</span>
+          </button>
+          {activeAccordion === 0 && (
+            <div className={`accordion-content ${activeAccordion === 0 ? 'active' : ''}`}>
+              <ul className="instructions-checklist">
+                <li>In this module, you will have the opportunity to practice writing 4-paragraph opinion essays to prepare for your university entrance English proficiency exam.</li>
+                <li>You will apply the writing skills you have developed throughout the course in a low-stakes practice environment before completing your final assessment.</li>
+                <li>You will practice integrating evidence from academic articles to support your ideas and strengthen your arguments.</li>
+                <li>You will develop clear, logical, and well-supported opinions using persuasive language and appropriate academic reasoning.</li>
+                <li>You will demonstrate your understanding of formal academic writing conventions, including organization, coherence, grammar, and academic vocabulary.</li>
+                <li>You are required to complete at least three opinion essays. If you would like additional practice, you may complete one optional fourth essay.</li>
+                <li>Each essay should be approximately 500–700 words in length.</li>
+                <li>Your instructor will provide a summative grade for each submitted essay rather than detailed formative feedback.</li>
+                <li>Please submit all required essays by the end of Week 14.</li>
+              </ul>
+            </div>
+          )}
         </div>
       </div>
 
       {/* Essay Prompts Grid */}
-      <h2 className="section-title">Essay Practice Prompts (Choose 3 of 5)</h2>
-      <p>Each prompt includes background articles and requires you to write a 4-paragraph opinion essay. Select and complete any 3 essays. If you want additional practice, you can complete a 4th essay.</p>
+      <h2 className="section-title">Essay Practice Prompts</h2>
+      <p>Each prompt includes background articles and requires you to write a 4-paragraph opinion essay.</p> <br/>
 
       <div className="essay-grid">
         {essayPrompts.map((prompt) => (
@@ -106,39 +98,7 @@ export default function PreparationPage() {
         ))}
       </div>
 
-      {/* Assessment Information */}
-      <h2 className="section-title">Assessment & Feedback</h2>
-      <p>Each essay you submit will receive a <strong>summative grade</strong> based on the 4-category rubric below. Your instructor will review your essay and enter a score (0–5) in each category.</p>
-
-      <div className="info-box info-box-blue">
-        <h4>Essay Rubric (All Essays Graded on This Scale)</h4>
-
-        <div className="rubric-table-wrapper">
-          <table className="rubric-table">
-            <thead>
-              <tr>
-                <th>Task Achievement</th>
-                <th>Organization</th>
-                <th>Grammar & Mechanics</th>
-                <th>Vocabulary & Tone</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="rubric-desc">Fulfills prompt; develops clear opinion; integrates evidence effectively</td>
-                <td className="rubric-desc">Clear structure; logical flow; coherent paragraph development</td>
-                <td className="rubric-desc">Range and accuracy of structures; correct punctuation and spelling</td>
-                <td className="rubric-desc">Academic vocabulary; appropriate formal tone; precise word choice</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p style={{ marginTop: '12px', fontSize: '0.9em', color: 'var(--text-muted)' }}>
-          <strong>Note:</strong> Instructors enter scores (0–5) in each box. Students will receive their final grade based on this rubric.
-        </p>
-      </div>
-
+     
       {/* Tips for Success */}
       <h2 className="section-title">Tips for Success</h2>
       <div className="two-col">
