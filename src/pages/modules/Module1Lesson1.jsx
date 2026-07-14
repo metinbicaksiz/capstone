@@ -33,26 +33,7 @@ export default function Module1Lesson1() {
         </div>
       </div>
         <div className="content-locked" dangerouslySetInnerHTML={{ __html: `<!-- Welcome Video -->
-      <h2 class="section-title">Welcome Video</h2>
-      <p>Watch this short welcome video from your instructor before starting the module. The video introduces the course, explains how the modules are organized, and gives you important information about how to use this website alongside your classroom lessons.</p>
-
-      <div class="video-placeholder">
-        <div class="play-btn">▶</div>
-        <p>Module 1 — Welcome Video<br><span style="font-size:0.85em; opacity:0.7;">[Upload your welcome video here — approx. 3–5 minutes]</span></p>
-      </div>
-
       
-      <!-- Module Overview -->
-      <h2 class="section-title">Module 1 Overview</h2>
-      <p>Module 1 is the starting point of your academic writing journey. Over the next three weeks, you will build the foundations you need to write academic essays throughout the rest of the course and beyond. This module does not require you to write a perfect essay immediately, it is about understanding the structure and conventions of academic writing so that you can develop your skills step by step.</p>
-      <br>
-
-
-      <div class="info-box info-box-orange">
-        <h4>How This Module Connects to the Rest of the Course</h4>
-        <p style="margin:0;">Everything you learn in Module 1 is a foundation for Modules 2, 3, and 4. The paragraph structure you practice here is the same structure used in all your essays. The academic language conventions you study will appear in every assessment. The vocabulary you begin learning now will be reinforced and expanded throughout the semester. Take your time with this module, it will make a significant difference to your writing in later modules.</p>
-      </div>
-
       <!-- Learning Objectives -->
       <h2 class="section-title">Module 1: Learning Objectives</h2>
       <p>By the end of Module 1, you will be able to:</p>
