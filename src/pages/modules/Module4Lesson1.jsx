@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import ModuleLayout from '../../components/ModuleLayout'
 import './ModulesPage.css'
+import welcomeVideo from '../../assets/welcome.mp4'
 
 export default function Module4Lesson1() {
   const moduleNames = {
@@ -29,15 +30,16 @@ export default function Module4Lesson1() {
       <!-- Welcome Video -->
       <h2 class="section-title">Welcome Video</h2>
       <p>Watch this welcome video from your instructor before starting Module 4. The video introduces argumentative essays, explains the module structure, and gives you an overview of what you will learn.</p>
+      ` }} />
 
-      <div class="video-placeholder">
-        <video width="100%" height="auto" controls style="border-radius: 8px;">
-          <source src="/Module_4__Opinion_Essays.mp4" type="video/mp4">
-          Your browser does not support the video tag. Please update your browser to watch this video.
-        </video>
-      </div>
+        <div className="video-placeholder">
+          <video width="100%" height="auto" controls style={{ borderRadius: '8px' }}>
+            <source src={welcomeVideo} type="video/mp4" />
+            Your browser does not support the video tag. Please update your browser to watch this video.
+          </video>
+        </div>
 
-    
+        <div dangerouslySetInnerHTML={{ __html: `
       <!-- Learning Objectives -->
       <h2 class="section-title">Module 4 — Learning Objectives</h2>
       <p>By the end of Module 4, you will be able to:</p>
