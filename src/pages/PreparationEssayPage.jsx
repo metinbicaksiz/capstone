@@ -17,7 +17,17 @@ const ARTICLES_BY_ESSAY = {
     { title: 'Packaging Waste in the Supply Chain: A Systematic Literature Review', file: 'Packaging_Waste_in_the_Supply_Chain_A_Systematic_L.pdf' },
     { title: 'Should Parents be Involved in their Children’s Schooling?', file: 'ShouldParentsbeInvolvedintheirChildrensSchoolingaccepted.pdf' },
   ],
+  2: [
+    { title: 'Should Social Media Platforms Remove Content That Spreads Harmful Stereotypes?', file: 'BestPracticesfordeletionofharmfulcontentonSM.pdf' },
+    { title: 'Do Online Fan Communities Influence How Films and TV Shows Are Made?', file: 'TransformationofFanCultureUndertheInfluence.pdf' },
+  ],
 }
+
+const INSTRUCTIONS_BY_ESSAY = {
+  2: 'Read both articles and choose one of the following prompts. Take a clear position and write a four-paragraph opinion essay (introduction, two body paragraphs, and conclusion). Support your ideas with evidence from the article and your own reasoning.',
+}
+
+const DEFAULT_INSTRUCTIONS = 'Read both articles, choose one essay prompt and one side of the argument, then write a 4-paragraph opinion essay using evidence from the article to support your ideas.'
 
 const PROMPTS_BY_ESSAY = {
   1: [
@@ -30,6 +40,18 @@ const PROMPTS_BY_ESSAY = {
       heading: 'Essay Prompt 2 – Parent Involvement in Education',
       question: 'To what extent should parents be actively involved in their children’s education?',
       guidance: 'Use evidence from the article to support your opinion. You may discuss the benefits and drawbacks of parent involvement, the importance of the quality of involvement, homework support, student independence, or the roles of parents and teachers.',
+    },
+  ],
+  2: [
+    {
+      heading: 'Essay Prompt 1 – Harmful Content on Social Media',
+      question: 'Do you agree or disagree that social media platforms should remove content that spreads harmful stereotypes? Explain and support your opinion with evidence from the article and your own ideas.',
+      guidance: 'After reading the article "Should Social Media Platforms Remove Content That Spreads Harmful Stereotypes?", use evidence from the article to support your opinion.',
+    },
+    {
+      heading: 'Essay Prompt 2 – Fan Communities and Media',
+      question: 'Do you believe that online fan communities should influence the way films and TV shows are created? Explain and support your opinion with evidence from the article and your own ideas.',
+      guidance: 'After reading the article "Do Online Fan Communities Influence How Films and TV Shows Are Made?", use evidence from the article to support your opinion.',
     },
   ],
 }
@@ -54,7 +76,7 @@ export default function PreparationEssayPage() {
 
       {/* Supporting Articles */}
       <h2 className="section-title">Supporting Articles</h2>
-      <p>Read both articles, choose one essay prompt and one side of the argument, then write a 4-paragraph opinion essay using evidence from the article to support your ideas.</p>
+      <p>{INSTRUCTIONS_BY_ESSAY[num] || DEFAULT_INSTRUCTIONS}</p>
       <div style={{ background: 'var(--grey-bg)', border: '1px solid var(--grey-border)', borderRadius: '10px', padding: '20px', marginBottom: '20px' }}>
         {[1, 2].map(n => {
           const article = ARTICLES_BY_ESSAY[num]?.[n - 1]
