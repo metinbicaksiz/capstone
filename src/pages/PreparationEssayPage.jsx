@@ -21,10 +21,15 @@ const ARTICLES_BY_ESSAY = {
     { title: 'Should Social Media Platforms Remove Content That Spreads Harmful Stereotypes?', file: 'BestPracticesfordeletionofharmfulcontentonSM.pdf' },
     { title: 'Do Online Fan Communities Influence How Films and TV Shows Are Made?', file: 'TransformationofFanCultureUndertheInfluence.pdf' },
   ],
+  3: [
+    { title: 'Hustle Culture and Workplace Anxiety: The Psychological Effect of Overworked Behavior among Working Individuals', file: 'Hustle_Culture_and_Workplace_Anxiety_The_Psycholog.pdf' },
+    { title: 'Embracing Failure as a Stepping Stone', file: 'EmbracingFailureasaSteppingStone.pdf' },
+  ],
 }
 
 const INSTRUCTIONS_BY_ESSAY = {
   2: 'Read both articles and choose one of the following prompts. Take a clear position and write a four-paragraph opinion essay (introduction, two body paragraphs, and conclusion). Support your ideas with evidence from the article and your own reasoning.',
+  3: 'Read both articles and choose one of the following prompts. Take a clear position and write a four-paragraph opinion essay (introduction, two body paragraphs, and conclusion). Support your opinion with evidence from the article and your own ideas.',
 }
 
 const DEFAULT_INSTRUCTIONS = 'Read both articles, choose one essay prompt and one side of the argument, then write a 4-paragraph opinion essay using evidence from the article to support your ideas.'
@@ -52,6 +57,18 @@ const PROMPTS_BY_ESSAY = {
       heading: 'Essay Prompt 2 – Fan Communities and Media',
       question: 'Do you believe that online fan communities should influence the way films and TV shows are created? Explain and support your opinion with evidence from the article and your own ideas.',
       guidance: 'After reading the article "Do Online Fan Communities Influence How Films and TV Shows Are Made?", use evidence from the article to support your opinion.',
+    },
+  ],
+  3: [
+    {
+      heading: 'Essay Prompt 1 – Hustle Culture and Workplace Anxiety',
+      question: 'Do you agree or disagree that modern hustle culture does more harm than good by increasing anxiety and burnout? Explain and support your opinion with evidence from the article and your own ideas.',
+      guidance: 'After reading the article "Hustle Culture and Workplace Anxiety: The Psychological Effect of Overworked Behavior among Working Individuals," use evidence from the article to support your opinion.',
+    },
+    {
+      heading: 'Essay Prompt 2 – Failure and Success',
+      question: 'To what extent do you agree or disagree that experiencing failure is necessary for achieving true success? Explain and support your opinion with evidence from the article and your own ideas.',
+      guidance: 'After reading the article "Embracing Failure as a Stepping Stone," use evidence from the article to support your opinion.',
     },
   ],
 }
