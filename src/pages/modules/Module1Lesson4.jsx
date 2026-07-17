@@ -73,7 +73,7 @@ const QUESTIONS = [
 // Run: INSERT INTO discussions (lesson_id, title) VALUES (14, 'Module 1 Lesson 4 Discussion');
 const M1L4_LESSON_ID = 14
 
-function RepliesThread({ replies, level = 1, replyingTo, setReplyingTo, replyText, setReplyText, user, handleSubmitReply, discussionId, loadComments }) {
+function RepliesThread({ replies, level = 1, replyingTo, setReplyingTo, replyText, setReplyText, user, handleSubmitReply, discussionId, loadComments, editingCommentId, setEditingCommentId, editText, setEditText, handleEditComment, handleDeleteComment }) {
   if (!replies || replies.length === 0) return null
 
   const toggleLike = async (commentId) => {
@@ -137,7 +137,21 @@ function RepliesThread({ replies, level = 1, replyingTo, setReplyingTo, replyTex
             )}
           </p>
           <p style={{ margin: '0 0 8px 0', fontSize: '0.85em', color: '#888' }}>{reply.timestamp}</p>
-          <p style={{ margin: '0 0 8px 0', color: '#333', lineHeight: '1.5', fontSize: '0.95em' }}>{reply.content}</p>
+          {editingCommentId === reply.id ? (
+            <div style={{ margin: '0 0 8px 0' }}>
+              <textarea
+                value={editText}
+                onChange={(e) => setEditText(e.target.value)}
+                style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid var(--grey-border)', fontFamily: 'inherit', fontSize: '0.9em', resize: 'vertical', minHeight: '60px', marginBottom: '8px' }}
+              />
+              <div style={{ display: 'flex', gap: '8px' }}>
+                <button className="btn btn-primary" disabled={!editText.trim()} onClick={() => handleEditComment(reply.id)} style={{ padding: '6px 12px', fontSize: '0.85em' }}>Save</button>
+                <button onClick={() => { setEditingCommentId(null); setEditText('') }} style={{ padding: '6px 12px', fontSize: '0.85em', background: '#f0f0f0', border: '1px solid #ddd', borderRadius: '4px', cursor: 'pointer' }}>Cancel</button>
+              </div>
+            </div>
+          ) : (
+            <p style={{ margin: '0 0 8px 0', color: '#333', lineHeight: '1.5', fontSize: '0.95em' }}>{reply.content}</p>
+          )}
           <div style={{ display: 'flex', gap: '12px', fontSize: '0.85em' }}>
             <button onClick={() => user && toggleLike(reply.id)} style={{ background: 'none', border: 'none', cursor: user ? 'pointer' : 'not-allowed', color: '#888', opacity: user ? 1 : 0.6 }}>
               Like {reply.likes}
@@ -149,6 +163,16 @@ function RepliesThread({ replies, level = 1, replyingTo, setReplyingTo, replyTex
               <button onClick={() => setReplyingTo(replyingTo === reply.id ? null : reply.id)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: replyingTo === reply.id ? '#e74c3c' : '#2980b9' }}>
                 {replyingTo === reply.id ? 'Cancel' : 'Reply'}
               </button>
+            )}
+            {user && reply.userId === user.id && (
+              <>
+                <button onClick={() => { setEditingCommentId(reply.id); setEditText(reply.content) }} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#2980b9' }}>
+                  Edit
+                </button>
+                <button onClick={() => handleDeleteComment(reply.id)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#e74c3c' }}>
+                  Delete
+                </button>
+              </>
             )}
           </div>
           {user && replyingTo === reply.id && (
@@ -176,6 +200,12 @@ function RepliesThread({ replies, level = 1, replyingTo, setReplyingTo, replyTex
             handleSubmitReply={handleSubmitReply}
             discussionId={discussionId}
             loadComments={loadComments}
+            editingCommentId={editingCommentId}
+            setEditingCommentId={setEditingCommentId}
+            editText={editText}
+            setEditText={setEditText}
+            handleEditComment={handleEditComment}
+            handleDeleteComment={handleDeleteComment}
           />
         </div>
       ))}
@@ -196,6 +226,8 @@ export default function Module1Lesson4() {
   const [replyText, setReplyText] = useState('')
   const [loading, setLoading] = useState(true)
   const [discussionId, setDiscussionId] = useState(null)
+  const [editingCommentId, setEditingCommentId] = useState(null)
+  const [editText, setEditText] = useState('')
 
   useEffect(() => {
     loadDiscussion()
@@ -243,6 +275,7 @@ export default function Module1Lesson4() {
         const u = userMap[c.user_id]
         const formatted = {
           id: c.id,
+          userId: c.user_id,
           author: u?.name || 'Anonymous',
           role: u?.role || 'student',
           content: c.content,
@@ -315,6 +348,33 @@ export default function Module1Lesson4() {
     } catch (error) {
       console.error('Error posting reply:', error)
       alert('Failed to post reply: ' + error.message)
+    }
+  }
+
+  const handleEditComment = async (commentId) => {
+    if (!editText.trim() || !user) return
+    try {
+      const { error } = await supabase.from('comments').update({ content: editText }).eq('id', commentId).eq('user_id', user.id)
+      if (error) throw error
+      setEditingCommentId(null)
+      setEditText('')
+      await loadComments(discussionId)
+    } catch (error) {
+      console.error('Error editing comment:', error)
+      alert('Failed to edit comment: ' + error.message)
+    }
+  }
+
+  const handleDeleteComment = async (commentId) => {
+    if (!user) return
+    if (!confirm('Are you sure you want to delete this comment?')) return
+    try {
+      const { error } = await supabase.from('comments').delete().eq('id', commentId).eq('user_id', user.id)
+      if (error) throw error
+      await loadComments(discussionId)
+    } catch (error) {
+      console.error('Error deleting comment:', error)
+      alert('Failed to delete comment: ' + error.message)
     }
   }
 
@@ -619,7 +679,21 @@ export default function Module1Lesson4() {
                             </div>
                           </div>
 
-                          <p style={{ margin: '12px 0', color: '#333', lineHeight: '1.6' }}>{comment.content}</p>
+                          {editingCommentId === comment.id ? (
+                            <div style={{ margin: '12px 0' }}>
+                              <textarea
+                                value={editText}
+                                onChange={(e) => setEditText(e.target.value)}
+                                style={{ width: '100%', padding: '12px', borderRadius: '4px', border: '1px solid var(--grey-border)', fontFamily: 'inherit', fontSize: '0.95em', resize: 'vertical', minHeight: '80px', marginBottom: '8px' }}
+                              />
+                              <div style={{ display: 'flex', gap: '8px' }}>
+                                <button className="btn btn-primary" disabled={!editText.trim()} onClick={() => handleEditComment(comment.id)} style={{ padding: '8px 16px', fontSize: '0.9em' }}>Save</button>
+                                <button onClick={() => { setEditingCommentId(null); setEditText('') }} style={{ padding: '8px 16px', fontSize: '0.9em', background: '#f0f0f0', border: '1px solid #ddd', borderRadius: '4px', cursor: 'pointer' }}>Cancel</button>
+                              </div>
+                            </div>
+                          ) : (
+                            <p style={{ margin: '12px 0', color: '#333', lineHeight: '1.6' }}>{comment.content}</p>
+                          )}
 
                           <div style={{ display: 'flex', gap: '16px', alignItems: 'center', marginTop: '12px' }}>
                             <button onClick={() => user && toggleLike(comment.id)} style={{ background: 'none', border: 'none', cursor: user ? 'pointer' : 'not-allowed', color: '#888', fontSize: '0.9em', opacity: user ? 1 : 0.6 }}>
@@ -632,6 +706,16 @@ export default function Module1Lesson4() {
                               <button onClick={() => setReplyingTo(replyingTo === comment.id ? null : comment.id)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: replyingTo === comment.id ? '#e74c3c' : '#2980b9', fontSize: '0.9em' }}>
                                 {replyingTo === comment.id ? 'Cancel' : 'Reply'}
                               </button>
+                            )}
+                            {user && comment.userId === user.id && (
+                              <>
+                                <button onClick={() => { setEditingCommentId(comment.id); setEditText(comment.content) }} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#2980b9', fontSize: '0.9em' }}>
+                                  Edit
+                                </button>
+                                <button onClick={() => handleDeleteComment(comment.id)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#e74c3c', fontSize: '0.9em' }}>
+                                  Delete
+                                </button>
+                              </>
                             )}
                           </div>
 
@@ -665,6 +749,12 @@ export default function Module1Lesson4() {
                                 handleSubmitReply={handleSubmitReply}
                                 discussionId={discussionId}
                                 loadComments={loadComments}
+                                editingCommentId={editingCommentId}
+                                setEditingCommentId={setEditingCommentId}
+                                editText={editText}
+                                setEditText={setEditText}
+                                handleEditComment={handleEditComment}
+                                handleDeleteComment={handleDeleteComment}
                               />
                             </div>
                           )}
