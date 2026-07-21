@@ -86,7 +86,7 @@ export default function Module4Lesson4() {
       <div class="info-box info-box-teal">
         <h4>Essay Rubric for Peer Review</h4>
         <p>Use the essay rubric to grade the paper and provide any additional feedback in the comments section while submitting the file. You will assign a score (0–5) in each category and provide written feedback.</p>
-        <p style="margin:0;"><a href="../../public/pdfs/ELC_AcademicEssayRubric.pdf" target="_blank">Rubrics</a></p>
+        <p style="margin:0;"><a href="/pdfs/ELC_AcademicEssayRubric.pdf" target="_blank">Rubrics</a></p>
       </div>
       
       
