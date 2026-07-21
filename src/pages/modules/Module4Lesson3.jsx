@@ -705,7 +705,7 @@ export default function Module4Lesson3() {
 
       <div class="page-banner" style="background: linear-gradient(135deg, #093C5D, #3B7597);">
         <h1>4.3 Reading, Discussion &amp; Collaboration</h1>
-        <p class="banner-sub">Read academic articles, discuss your ideas with classmates, and collaborate on pair work activities.</p>
+        <p class="banner-sub">Read academic articles, discuss your ideas with classmates, and collaborate.</p>
       </div>
 
       <!-- Reading Assignment -->

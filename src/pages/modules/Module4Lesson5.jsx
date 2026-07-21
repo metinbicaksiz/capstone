@@ -30,7 +30,7 @@ export default function Module4Lesson5() {
       <!-- Final Submission Instructions -->
       <h2 class="section-title">Final Argumentative Essay</h2>
       <!-- Required Articles -->
-      <p>Your final essay must incorporate evidence and ideas from at least 3 academic articles. You will be provided with articles that support different positions on the assigned topic.</p>
+      <p>Your final essay must incorporate evidence and ideas from one of the academic articles. You will be provided with articles that support different positions on the assigned topic.</p>
       </br>
       <div class="info-box info-box-teal">
         <h4>Articles</h4>
